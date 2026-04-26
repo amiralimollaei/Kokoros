@@ -917,11 +917,11 @@ async fn handle_tts_streaming(
                 }
                 Ok(Err(_e)) => {
                     // TTS processing error - still count as processed
-                    chunks_processed += 1;
+                    // chunks_processed += 1;
                 }
                 Err(_e) => {
                     // Task execution error - still count as processed
-                    chunks_processed += 1;
+                    // chunks_processed += 1;
                 }
             }
         }
@@ -936,7 +936,7 @@ async fn handle_tts_streaming(
             // This prevents duplicate sends while ensuring no valid chunks are skipped
             if chunk_id >= next_to_send {
                 let _ = audio_tx_clone.send((task_id, pcm_data));
-                chunks_processed += 1;
+                // chunks_processed += 1;
             }
         }
 
